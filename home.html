@@ -41,11 +41,11 @@
         </div>
 
         <div class="min-h-[200px] grid grid-cols-3 gap-4 text-sm text-[#080808b3] p-5">
-            <div class="border-1 border-gray-300 text-center p-4 rounded-xl">
+            <div id="add-money-button" class="border-1 border-gray-300 text-center p-4 rounded-xl">
                 <img src="./assets/wallet1.png" alt="" class="mx-auto">
                 <h3>Add Money</h3>
             </div>
-            <div class="border-1 border-gray-300 text-center p-4 rounded-xl">
+            <div id="cash-out-button" class="border-1 border-gray-300 text-center p-4 rounded-xl">
                 <img src="./assets/send1.png" alt="" class="mx-auto">
                 <h3>Cashout</h3>
             </div>
@@ -69,7 +69,7 @@
     </header>
 
     <div class="all-form-section p-6">
-        <div>
+        <div id="add-money-parent">
             <h3 class=" text-lg font-bold mb-3">Add Money</h3>
             <form class="bg-white rounded-3xl p-8">
                 <div>
@@ -91,7 +91,7 @@
                 <div>
                     <label class=" font-[500]" for="">Amount to Add</label>
                     <br>
-                    <input type="text" placeholder="Add Amount to withdraw" id="add-amount"
+                    <input type="text" placeholder="Add Amount to add" id="add-amount"
                         class="input bg-[#f4f5f7] mt-3 rounded-3xl border-none w-full font-semibold p-6 text-[16px] mb-3" />
                 </div>
                 <div>
@@ -104,9 +104,35 @@
                     class="btn bg-[#0874F2] text-white text-[16px] mt-4 w-full rounded-3xl p-6 font-semibold">Add Money</button>
             </form>
         </div>
+
+        <div id="cash-out-parent" class=" hidden">
+            <h3 class=" text-lg font-bold mb-3">Cash Out</h3>
+            <form class="bg-white rounded-3xl p-8">
+                <div>
+                    <label class=" font-[500]" for="">Agent Number</label>
+                    <br>
+                    <input type="text" placeholder="Enter 11 digit number" id="agent-number"
+                        class="input bg-[#f4f5f7] mt-3 rounded-3xl border-none w-full font-semibold p-6 text-[16px] mb-3" />
+                </div>
+                <div>
+                    <label class=" font-[500]" for="">Amount</label>
+                    <br>
+                    <input type="text" placeholder="Enter amount to withdraw" id="cash-out-amount"
+                        class="input bg-[#f4f5f7] mt-3 rounded-3xl border-none w-full font-semibold p-6 text-[16px] mb-3" />
+                </div>
+                <div>
+                    <label class=" font-[500]" for="">Pin Number</label>
+                    <br>
+                    <input type="text" placeholder="Enter 4 digit pin number" id="cash-out-pin"
+                        class="input bg-[#f4f5f7] mt-3 rounded-3xl border-none w-full font-semibold p-6 text-[16px] mb-3" />
+                </div>
+                <button id="cash-out-btn"
+                    class="btn bg-[#0874F2] text-white text-[16px] mt-4 w-full rounded-3xl p-6 font-semibold">Cash out</button>
+            </form>
+        </div>
     </div>
 
-    <script src="./add-money.js"></script>
+    <script src="./home.js"></script>
 </body>
 
 </html>
