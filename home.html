@@ -29,7 +29,7 @@
             </div>
 
             <div>
-                <button class="btn btn-outline text-[#08080880]"><i
+                <button id="log-out-button" class="btn btn-outline text-[#08080880]"><i
                         class="fa-solid fa-arrow-right-from-bracket rotate-180"></i> Log Out</button>
             </div>
         </nav>
@@ -49,19 +49,19 @@
                 <img src="./assets/send1.png" alt="" class="mx-auto">
                 <h3>Cashout</h3>
             </div>
-            <div class="form-btn border-1 border-gray-300 text-center px-2 py-5 rounded-xl">
+            <div id="transfer-money-button" class="form-btn border-1 border-gray-300 text-center px-2 py-5 rounded-xl">
                 <img src="./assets/money1.png" alt="" class="mx-auto">
                 <h3>Transfer Money</h3>
             </div>
-            <div class="form-btn border-1 border-gray-300 text-center p-4 rounded-xl">
+            <div id="bonus-button" class="form-btn border-1 border-gray-300 text-center p-4 rounded-xl">
                 <img src="./assets/bonus1.png" alt="" class="mx-auto">
                 <h3>Get Bonus</h3>
             </div>
-            <div class="border-1 border-gray-300 text-center p-4 rounded-xl">
+            <div id="pay-bill-button" class="border-1 border-gray-300 text-center p-4 rounded-xl">
                 <img src="./assets/purse1.png" alt="" class="mx-auto">
                 <h3>Pay Bill</h3>
             </div>
-            <div class="form-btn border-1 border-gray-300 text-center p-4 rounded-xl">
+            <div id="transaction-button" class="form-btn border-1 border-gray-300 text-center p-4 rounded-xl">
                 <img src="./assets/transaction1.png" alt="" class="mx-auto">
                 <h3>Transactions</h3>
             </div>
@@ -69,6 +69,7 @@
     </header>
 
     <div class="all-form-section p-6">
+        <!-- add money section -->
         <div class="form" id="add-money-parent">
             <h3 class=" text-lg font-bold mb-3">Add Money</h3>
             <form class="bg-white rounded-3xl p-8">
@@ -101,11 +102,13 @@
                         class="input bg-[#f4f5f7] mt-3 rounded-3xl border-none w-full font-semibold p-6 text-[16px] mb-3" />
                 </div>
                 <button id="add-money-btn"
-                    class="btn bg-[#0874F2] text-white text-[16px] mt-4 w-full rounded-3xl p-6 font-semibold">Add Money</button>
+                    class="btn bg-[#0874F2] text-white text-[16px] mt-4 w-full rounded-3xl p-6 font-semibold">Add
+                    Money</button>
             </form>
         </div>
 
-        <div class="form" id="cash-out-parent" class=" hidden">
+        <!-- cash out section -->
+        <div class="form hidden" id="cash-out-parent">
             <h3 class=" text-lg font-bold mb-3">Cash Out</h3>
             <form class="bg-white rounded-3xl p-8">
                 <div>
@@ -127,8 +130,36 @@
                         class="input bg-[#f4f5f7] mt-3 rounded-3xl border-none w-full font-semibold p-6 text-[16px] mb-3" />
                 </div>
                 <button id="cash-out-btn"
-                    class="btn bg-[#0874F2] text-white text-[16px] mt-4 w-full rounded-3xl p-6 font-semibold">Cash out</button>
+                    class="btn bg-[#0874F2] text-white text-[16px] mt-4 w-full rounded-3xl p-6 font-semibold">Cash
+                    out</button>
             </form>
+        </div>
+
+        <!-- transfer money section -->
+        <div class="form hidden" id="transfer-money-parent">
+            <h3 class=" text-lg font-bold mb-3">Transfer Money</h3>
+        </div>
+
+        <!-- get bonus section -->
+        <div class="form hidden" id="bonus-parent">
+            <h3 class=" text-lg font-bold mb-3">Get Bonus</h3>
+        </div>
+
+        <!-- pay bill section -->
+        <div class="form hidden" id="pay-bill-parent">
+            <h3 class=" text-lg font-bold mb-3">Pay Bill</h3>
+        </div>
+
+        <!-- transaction section -->
+        <div class="form hidden" id="transactions-parent">
+            <div class=" flex justify-between items-center">
+                <h3 class=" text-lg font-bold mb-3">Transactions</h3>
+                <p class=" text-sm text-[#08080880] font-[500]">View All</p>
+            </div>
+
+            <div id="transaction-container">
+                
+            </div>
         </div>
     </div>
 

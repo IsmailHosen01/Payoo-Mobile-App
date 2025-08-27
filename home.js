@@ -1,4 +1,5 @@
 const validPin = 1234
+const transactionHistory = []
 
 // function to get input values
 function getInputValueNumber(id) {
@@ -50,6 +51,12 @@ function handleToggleButton(id) {
 }
 
 
+// log out button
+document.getElementById('log-out-button').addEventListener('click', function () {
+    window.location.href = './index.html'
+})
+
+// add money section
 document.getElementById('add-money-btn').addEventListener('click', function (event) {
     event.preventDefault()
 
@@ -59,6 +66,11 @@ document.getElementById('add-money-btn').addEventListener('click', function (eve
     const pinNumber = getInputValueNumber('add-pin')
 
     const totalAmount = getInnerText('total-amount')
+
+    if (amount <= 0) {
+        alert('Invalid amount')
+        return
+    }
 
     if (accountNumber.length < 11 || accountNumber.length > 11) {
         alert('Please provide a valid account number')
@@ -71,6 +83,13 @@ document.getElementById('add-money-btn').addEventListener('click', function (eve
     }
     const newTotalAmount = totalAmount + amount
     setInnerText(newTotalAmount)
+
+    const data = {
+        name: "Add Money",
+        time: new Date().toLocaleTimeString()
+    }
+
+    transactionHistory.push(data)
 })
 
 
@@ -84,6 +103,11 @@ document.getElementById('cash-out-btn').addEventListener('click', function (even
 
     const totalAmount = getInnerText('total-amount');
 
+    if (cashOutAmount <= 0 || cashOutAmount > totalAmount) {
+        alert('Invalid amount')
+        return
+    }
+
     if (agentNumber.length < 11 || agentNumber.length > 11) {
         alert('Please provide a valid account number')
         return
@@ -96,8 +120,40 @@ document.getElementById('cash-out-btn').addEventListener('click', function (even
 
     const newTotalAmount = totalAmount - cashOutAmount
     setInnerText(newTotalAmount)
+
+    const data = {
+        name: "Cash Out",
+        time: new Date().toLocaleTimeString()
+    }
+
+    transactionHistory.push(data)
 })
 
+
+// transaction section
+document.getElementById('transaction-button').addEventListener('click', function () {
+    const transactionContainer = document.getElementById('transaction-container')
+    transactionContainer.innerText = ''
+
+    for (const data of transactionHistory) {
+        const div = document.createElement('div')
+        div.innerHTML = `
+        <div class="bg-white rounded-xl p-4 flex justify-between items-center mb-3">
+            <div class="flex items-center gap-3">
+                <div class=" bg-[#0808080d] rounded-full p-3">
+                    <img src="./assets/wallet1.png" alt="">
+                </div>
+                <div>
+                    <h3 class="text-[#080808b3] font-bold">${data.name}</h3>
+                    <p class="text-[#080808b3] text-xs font-[400]">${data.time}</p>
+                </div>
+            </div>
+
+            <i class="fa-solid fa-ellipsis rotate-90 text-xl text-[#080808b3]"></i>
+        </div>`
+        transactionContainer.appendChild(div)
+    }
+})
 
 
 // toggling feature
@@ -108,10 +164,28 @@ document.getElementById('add-money-button').addEventListener('click', function (
 
 })
 
-
 document.getElementById('cash-out-button').addEventListener('click', function () {
     handleToggle('cash-out-parent')
     handleToggleButton('cash-out-button')
 })
 
+document.getElementById('transfer-money-button').addEventListener('click', function () {
+    handleToggle('transfer-money-parent')
+    handleToggleButton('transfer-money-button')
+})
+
+document.getElementById('bonus-button').addEventListener('click', function () {
+    handleToggle('bonus-parent')
+    handleToggleButton('bonus-button')
+})
+
+document.getElementById('pay-bill-button').addEventListener('click', function () {
+    handleToggle('pay-bill-parent')
+    handleToggleButton('pay-bill-button')
+})
+
+document.getElementById('transaction-button').addEventListener('click', function () {
+    handleToggle('transactions-parent')
+    handleToggleButton('transaction-button')
+})
 
